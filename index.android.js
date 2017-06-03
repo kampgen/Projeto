@@ -5,14 +5,12 @@ import {
   Text,
   View
 } from 'react-native';
-import Login from './app/components/Login.js'
-import Cadastro from './app/components/Cadastro.js'
-
+import Routes from './app/Routes'
 
 export default class Projeto extends Component {
   render() {
     return (
-      <Cadastro />
+      <Routes />
     );
   }
 }

@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
   TextInput,
-	Image
+	Image,
+  Button
 } from 'react-native';
+import { Actions } from 'react-native-router-flux'
+import { defaultColor, secondColor, thirdColor } from '../constants.js'
 
 const userImg = require('../images/user.png')
+const logo = require('../images/logodoacao.png')
 const passwordImg = require('../images/password.png')
 
 export default class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
-		  <View style={styles.imgLogo}></View>
+		  <View style={styles.imgLogo}>
+      <Image source={logo} style={{flex: 1}}/>
+      </View>
 		  <View style={styles.formulario}>
 			  <View style={styles.box}>
 				  <View style={styles.boxImg}>
@@ -33,9 +38,14 @@ export default class Login extends Component {
 					  <TextInput placeholder='Password'></TextInput>
 				  </View>
 			  </View>
+        <View style={styles.loginButtonBox}>
+        <View style={{marginHorizontal: 50, alignSelf: 'stretch', flex: 1}}>
+        <Button title="logar" color={defaultColor} onPress={() => Actions.formLista()}></Button>
+        </View>
+        </View>
 		  </View>
 		  <View style={styles.footer}>
-			  <Text style={{fontSize: 20, color: 'white'}}>Copyright Teste 2017</Text>
+			  <Text style={{fontSize: 20}}>Copyright Teste 2017</Text>
 		  </View>
       </View>
     );
@@ -47,12 +57,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: thirdColor,
   },
   imgLogo: {
 	  flex: 5,
 	  alignSelf: 'stretch',
-	  backgroundColor: '#b8860b'
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 50
   },
   formulario:{
 	flex: 5,
@@ -60,13 +72,11 @@ const styles = StyleSheet.create({
 	alignSelf: 'stretch',
 	alignItems: 'center',
 	justifyContent: 'center',
-	backgroundColor: '#a9a9a9'
   },
   box: {
 	  flex: 1,
 	  maxHeight: 80,
 	  alignSelf: 'stretch',
-	  backgroundColor: '#bdb76b',
 	  flexDirection: 'row',
 	  alignItems: 'center',
 	  justifyContent: 'center'
@@ -98,10 +108,16 @@ const styles = StyleSheet.create({
 	  marginRight: 30,
 	  paddingHorizontal: 20
   },
+  loginButtonBox: {
+    flexDirection: 'row',
+    flex: 1,
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+    marginTop: 10
+  },
   footer: {
 	  flex: 1,
 	  alignSelf: 'stretch',
-	  backgroundColor: '#483d8b',
 	  alignItems: 'center',
 	  justifyContent: 'center'
   }

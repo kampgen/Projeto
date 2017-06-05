@@ -12,7 +12,7 @@ import Start from './components/Start'
 
 export default props => (
   <Router>
-    <Scene key="formStart" component={Start} title="Start" />
+  <Scene key="formStart" component={Start} title="Start" />
     <Scene key="formCadastro" component={Cadastro} title="Cadastro" />
     <Scene key="formLogin" component={Login} title="Login" />
     <Scene key="formLista" component={Lista} title="Lista" />

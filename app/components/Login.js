@@ -9,13 +9,28 @@
     } from 'react-native';
     import { Actions } from 'react-native-router-flux'
     import { defaultColor, secondColor, thirdColor } from '../constants.js'
-    import { teste } from './Firebase.js'
+    import { logarUsuario } from './Firebase.js'
 
     const userImg = require('../images/user.png')
     const logo = require('../images/logodoacao.png')
     const passwordImg = require('../images/password.png')
 
     export default class Login extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            email: '',
+            password: ''
+        }
+    }
+
+    Logar( user, password ) {
+        logarUsuario(user, password)
+    }
+
+// Actions.formLista()
+
       render() {
         return (
           <View style={styles.container}>
@@ -28,20 +43,23 @@
     					  <Image source={userImg} style={styles.userIcon}/>
     				  </View>
     				  <View style={styles.inputText}>
-    					  <TextInput placeholder='Login' ></TextInput>
+    					  <TextInput placeholder='Login'
+                           onChangeText={e => this.setState({ email: e })} />
     				  </View>
     			  </View>
     			  <View style={styles.box}>
     				  <View style={styles.boxImg}>
-    					  <Image source={passwordImg} style={styles.passwordIcon}/>
+    					  <Image source={passwordImg} style={styles.passwordIcon} />
     				  </View>
     				  <View style={styles.inputText}>
-    					  <TextInput placeholder='Password'></TextInput>
+    					  <TextInput placeholder='Password'
+                                secureTextEntry={true}
+                                onChangeText={e => this.setState({ password: e })} />
     				  </View>
     			  </View>
             <View style={styles.loginButtonBox}>
             <View style={{marginHorizontal: 50, alignSelf: 'stretch', flex: 1}}>
-            <Button title="logar" color={defaultColor} onPress={() => Actions.formLista()}></Button>
+            <Button title="logar" color={defaultColor} onPress={() => this.Logar(this.state.email, this.state.password)}></Button>
             </View>
             </View>
     		  </View>
@@ -90,7 +108,8 @@
     	backgroundColor: 'white',
     	borderWidth: 3,
     	borderColor: 'grey',
-    	marginLeft: 30
+    	marginLeft: 30,
+        borderRightWidth: 0
       },
       userIcon: {
     	  height: 40,

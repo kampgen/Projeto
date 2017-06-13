@@ -25,6 +25,13 @@
 
     cadastrar(email, senha) {
         cadastrarUsuario(email, senha)
+        .then(p => console.log(p))
+
+        // logarUsuario(user, password)
+        // .then(p => {
+        //     if (p == undefined) return
+        //     Actions.formLista()
+        // })
     }
 
     render() {
@@ -34,8 +41,8 @@
     			<View style={styles.box}>
     				<View style={styles.inputText}>
     					<TextInput placeholder='email'
-            onChangeText={email => this.setState({ email })}
-            />
+                        onChangeText={email => this.setState({ email })}
+                        />
     				</View>
     			</View>
 
@@ -43,6 +50,7 @@
           <View style={styles.inputText}>
             <TextInput
             placeholder='Senha'
+            secureTextEntry={true}
             onChangeText={password => this.setState({ password })}
             />
           </View>

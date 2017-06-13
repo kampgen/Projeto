@@ -18,15 +18,23 @@ import { Actions } from 'react-native-router-flux'
         let senha = password
         const usuario = firebase.auth()
 
-        usuario.createUserWithEmailAndPassword(email, senha)
+        return usuario.createUserWithEmailAndPassword(email, senha)
+        .then(p => p)
         .catch(erro => alert( erro.message ))
     }
 
-    export function logarUsuario(user, password, goto) {
+    export function logarUsuario(user, password) {
         let email = user
         let senha = password
         const usuario = firebase.auth()
 
-        usuario.signInWithEmailAndPassword(email, password)
+        return usuario.signInWithEmailAndPassword(email, password).
+        then(p => p)
         .catch(erro => alert( erro.message ))
+    }
+
+    export function fetchAll() {
+        let db = firebase.database()
+        r = []
+        return db.ref("/Animais").once("value").then(snapshot => snapshot.val() )
     }

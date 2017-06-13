@@ -27,6 +27,10 @@
 
     Logar( user, password ) {
         logarUsuario(user, password)
+        .then(p => {
+            if (p == undefined) return
+            Actions.formLista()
+        })
     }
 
 // Actions.formLista()

@@ -10,6 +10,7 @@ import {
 import { Actions } from 'react-native-router-flux'
 import { defaultColor, secondColor, thirdColor } from '../constants.js'
 const logo = require('../images/logodoacao.png')
+import { authTest } from './Firebase'
 
 export default class Start extends Component {
   render() {

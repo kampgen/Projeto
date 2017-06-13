@@ -9,7 +9,7 @@ import {
   ScrollView,
   TouchableHighlight
 } from 'react-native'
-import { fetchAll } from './Firebase'
+import { fetchAll, novoAnimal } from './Firebase'
 import { defaultColor, secondColor, thirdColor } from '../constants.js'
 import { Actions } from 'react-native-router-flux'
 
@@ -30,18 +30,20 @@ export default class Lista extends Component {
         })
     }
 
+    _novoAnimal() {
+        novoAnimal()
+    }
+
     _handleList(l, id) {
         return(
-            <TouchableHighlight onPress={() => false}>
-                <View key={id} style={styles.eachItem}>
+            <TouchableHighlight key={id} onPress={() => false}>
+                <View style={styles.eachItem}>
                     <View>
                         <Text style={{ fontSize: 18 }}>Nome: {l.Nome}</Text>
                         <Text style={{ fontSize: 18 }}>Idade: {l.Idade}      Porte: {l.Porte}</Text>
                         <Text style={{ fontSize: 18 }}>Raça: {l.Raca}</Text>
                     </View>
-                    <View style={styles.imageBox}>
-                        <Image style={{ width: 100, height: 80 }} source={{uri: l.Foto}}/>
-                    </View>
+                        <Image style={[styles.imageBox, { width: 100, height: 80 }]} source={{uri: l.Foto}}/>
                 </View>
             </TouchableHighlight>
         )
@@ -49,12 +51,12 @@ export default class Lista extends Component {
 
   render() {
     return (
-		<ScrollView style={styles.container}>
-            <Button color={defaultColor} title='clique aqui para Doar um animal' onPress={() => Actions.formCadastro()}/>
-            <View style={styles.lista}>
+		<View style={styles.container}>
+            <Button color={defaultColor} title='clique aqui para Doar um animal' onPress={() => this._novoAnimal()}/>
+            <ScrollView style={styles.lista}>
                 {this.state.lista.map((l, id) => this._handleList(l, id))}
-            </View>
-		</ScrollView>
+            </ScrollView>
+		</View>
 	)
 }
 }

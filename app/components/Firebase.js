@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { View, text } from 'react-native'
 import firebase from 'firebase'
-import { Actions } from 'react-native-router-flux'
 
         let config = {
         apiKey: "AIzaSyAnTjCT-1GYaSl0lueL6d_PpuDwLGOvDfM",
@@ -35,6 +34,31 @@ import { Actions } from 'react-native-router-flux'
 
     export function fetchAll() {
         let db = firebase.database()
-        r = []
-        return db.ref("/Animais").once("value").then(snapshot => snapshot.val() )
+        return db.ref("/Animais").once("value").then(snapshot => snapshot.val())
+    }
+
+    export function authTest() {
+        let db = firebase.auth()
+
+        //criar funçao para verificar se usuario esta logado
+    }
+
+    export function novoAnimal() {
+        let animal = {
+            Nome: "Nome do animal",
+            Idade: 66,
+            Porte: "Grande",
+            Raca: "Viralata",
+            Descricao: "Testando isso",
+            Foto: "http://www.folhavitoria.com.br/geral/blogs/petblog/wp-content/uploads/2013/02/Imagem%202561361208510.jpg"
+        }
+
+        firebase.database().ref('Animais').push({
+            Nome: animal.Nome,
+            Idade: animal.Idade,
+            Porte: animal.Porte,
+            Raca: animal.Raca,
+            Descricao: animal.Descricao,
+            Foto: animal.Foto
+        });
     }

@@ -25,13 +25,10 @@
 
     cadastrar(email, senha) {
         cadastrarUsuario(email, senha)
-        .then(p => console.log(p))
-
-        // logarUsuario(user, password)
-        // .then(p => {
-        //     if (p == undefined) return
-        //     Actions.formLista()
-        // })
+        .then(l => {
+            if (l == undefined) return
+            Actions.formLista()
+        })
     }
 
     render() {

@@ -1,3 +1,3 @@
-export const defaultColor = "#002E1E"
+export const defaultColor = "#065502"
 export const secondColor = "#8ABBAA"
-export const thirdColor = "#D8E5E1"
+export const thirdColor = "#DEE8DD"

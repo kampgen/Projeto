@@ -30,10 +30,6 @@ export default class Lista extends Component {
         })
     }
 
-    _novoAnimal() {
-        novoAnimal()
-    }
-
     _handleList(l, id) {
         return(
             <TouchableHighlight key={id} onPress={() => false}>
@@ -52,7 +48,7 @@ export default class Lista extends Component {
   render() {
     return (
 		<View style={styles.container}>
-            <Button color={defaultColor} title='clique aqui para Doar um animal' onPress={() => this._novoAnimal()}/>
+            <Button color={defaultColor} title='clique aqui para Doar um animal' onPress={() => Actions.formCadastroAnimal()}/>
             <ScrollView style={styles.lista}>
                 {this.state.lista.map((l, id) => this._handleList(l, id))}
             </ScrollView>

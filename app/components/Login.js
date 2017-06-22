@@ -48,6 +48,7 @@
     				  </View>
     				  <View style={styles.inputText}>
     					  <TextInput placeholder='Login'
+                          keyboardType="email-address"
                            onChangeText={e => this.setState({ email: e })} />
     				  </View>
     			  </View>

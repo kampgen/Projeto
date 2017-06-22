@@ -5,6 +5,7 @@
     View,
     TextInput,
     Image,
+    ScrollView,
     Button
     } from 'react-native';
     import { defaultColor, secondColor, thirdColor } from '../constants.js'
@@ -43,15 +44,15 @@
     				</View>
     			</View>
 
-        <View style={styles.box}>
-          <View style={styles.inputText}>
-            <TextInput
-            placeholder='Senha'
-            secureTextEntry={true}
-            onChangeText={password => this.setState({ password })}
-            />
-          </View>
-        </View>
+                <View style={styles.box}>
+                  <View style={styles.inputText}>
+                    <TextInput
+                    placeholder='Senha'
+                    secureTextEntry={true}
+                    onChangeText={password => this.setState({ password })}
+                    />
+                  </View>
+                </View>
 
     			<View style={styles.button}>
     				<Button color={defaultColor} title='Cadastrar' onPress={() => this.cadastrar(this.state.email,this.state.password)}></Button>

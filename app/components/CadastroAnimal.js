@@ -26,6 +26,16 @@
     }
 
     _cadastrarAnimal() {
+        let erro = false
+
+        if (this.state.nome == "" ||
+            this.state.idade == "" ||
+            this.state.raca == "") {
+            erro = true
+        }
+
+        if (erro) return alert("Verifique todas informações.")
+
         let body = {
             nome: this.state.nome,
             idade: this.state.idade,
@@ -34,7 +44,7 @@
             raca: this.state.raca,
         }
 
-        cadastrarAnimal(body)
+        cadastrarAnimal(body).then(() => Actions.formLista())
     }
 
     onChanged(text){
@@ -59,6 +69,7 @@
                 <View style={styles.box}>
                     <View style={styles.inputText}>
                         <TextInput placeholder='Nome'
+                        autoCapitalize="words"
                         onChangeText={nome => this.setState({ nome })}
                         />
                     </View>
@@ -88,6 +99,7 @@
                 <View style={styles.box}>
                     <View style={styles.inputText}>
                         <TextInput placeholder='Raça'
+                        autoCapitalize="words"
                         onChangeText={raca => this.setState({ raca })}
                         />
                     </View>
@@ -97,6 +109,7 @@
                     <View style={styles.inputText}>
                         <TextInput placeholder='Descrição'
                         multiline = {true}
+                        autoCapitalize="sentences"
                         numberOfLines = {4}
                         onChangeText={descricao => this.setState({ descricao })}
                         />

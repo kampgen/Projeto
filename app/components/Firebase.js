@@ -46,12 +46,13 @@ import firebase from 'firebase'
     export function cadastrarAnimal(animal) {
         animal.foto = "http://www.folhavitoria.com.br/geral/blogs/petblog/wp-content/uploads/2013/02/Imagem%202561361208510.jpg"
 
-        firebase.database().ref('Animais').push({
+        return firebase.database().ref('Animais').push({
             Nome: animal.nome,
             Idade: animal.idade,
             Porte: animal.porte,
             Raca: animal.raca,
             Descricao: animal.descricao,
             Foto: animal.foto
-        });
+        }).then(a => a)
+        .catch(err => alert(err.message))
     }

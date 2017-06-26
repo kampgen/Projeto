@@ -15,25 +15,29 @@
     const logo = require('../images/logodoacao.png')
     const passwordImg = require('../images/password.png')
 
-    export default class Login extends Component {
+    export default class Animal extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            email: '',
-            password: ''
+            nome: '',
+            idade: '',
+            porte: 'm',
+            descricao: '',
+            raca: '',
         }
     }
 
-    Logar( user, password ) {
-        logarUsuario(user, password)
-        .then(p => {
-            if (p == undefined) return
-            Actions.formLista()
+    componentDidMount() {
+        console.log(animal);
+        this.setState({
+            nome: this.props.nome,
+            idade: this.props.idate,
+            porte: this.props.porte,
+            descricao: this.props.descricao,
+            raca: this.props.raca,
         })
     }
-
-// Actions.formLista()
 
       render() {
         return (
@@ -42,31 +46,7 @@
           <Image source={logo} style={{flex: 1}}/>
           </View>
     		  <View style={styles.formulario}>
-    			  <View style={styles.box}>
-    				  <View style={styles.boxImg}>
-    					  <Image source={userImg} style={styles.userIcon}/>
-    				  </View>
-    				  <View style={styles.inputText}>
-    					  <TextInput placeholder='Login'
-                          type=" e"
-                           onChangeText={e => this.setState({ email: e })} />
-    				  </View>
-    			  </View>
-    			  <View style={styles.box}>
-    				  <View style={styles.boxImg}>
-    					  <Image source={passwordImg} style={styles.passwordIcon} />
-    				  </View>
-    				  <View style={styles.inputText}>
-    					  <TextInput placeholder='Password'
-                                secureTextEntry={true}
-                                onChangeText={e => this.setState({ password: e })} />
-    				  </View>
-    			  </View>
-            <View style={styles.loginButtonBox}>
-            <View style={{marginHorizontal: 50, alignSelf: 'stretch', flex: 1}}>
-            <Button title="logar" color={defaultColor} onPress={() => this.Logar(this.state.email, this.state.password)}></Button>
-            </View>
-            </View>
+
     		  </View>
     		  <View style={styles.footer}>
     			  <Text style={{fontSize: 20}}>Copyright Teste 2017</Text>

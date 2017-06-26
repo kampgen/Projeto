@@ -32,12 +32,11 @@ export default class Lista extends Component {
 
     _handleList(l, id) {
         return(
-            <TouchableHighlight key={id} onPress={() => false}>
+            <TouchableHighlight key={id} onPress={() => Actions.animal(anima = l)}>
                 <View style={styles.eachItem}>
-                    <View>
-                        <Text style={{ fontSize: 18 }}>Nome: {l.Nome}</Text>
-                        <Text style={{ fontSize: 18 }}>Idade: {l.Idade}      Porte: {l.Porte}</Text>
-                        <Text style={{ fontSize: 18 }}>Raça: {l.Raca}</Text>
+                    <View style={{marginTop: 10}}>
+                        <Text style={{ fontSize: 22 }}>Idade: {l.Idade}    Porte: {l.Porte}</Text>
+                        <Text style={{ fontSize: 22 }}>Raça: {l.Raca}</Text>
                     </View>
                         <Image style={[styles.imageBox, { width: 100, height: 80 }]} source={{uri: l.Foto}}/>
                 </View>

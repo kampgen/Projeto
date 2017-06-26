@@ -29,7 +29,7 @@ import firebase from 'firebase'
 
         return usuario.signInWithEmailAndPassword(email, password).
         then(p => p)
-        .catch(erro => alert( erro.message ))
+        .catch(erro => alert( erro.status ))
     }
 
     export function fetchAll() {
@@ -54,5 +54,5 @@ import firebase from 'firebase'
             Descricao: animal.descricao,
             Foto: animal.foto
         }).then(a => a)
-        .catch(err => alert(err.message))
+        .catch(err => alert( err.message ))
     }

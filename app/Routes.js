@@ -14,7 +14,7 @@
 
     export default props => (
         <Router>
-            <Scene key="formStart" initial hideNavBar component={Start} title="Adoção" />
+            <Scene key="formStart" initial component={Start} title="Adoção" />
             <Scene key="animal" direction="vertical" component={Animal} title="Animal" />
             <Scene key="formCadastro" component={Cadastro} title="Cadastro de usuário" />
             <Scene key="formLogin" component={Login} title="Login" />

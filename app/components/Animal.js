@@ -31,25 +31,27 @@
     componentDidMount() {
         console.log(animal);
         this.setState({
-            nome: animal.nome,
-            idade: animal.idate,
-            porte: animal.porte,
-            descricao: animal.descricao,
-            raca: animal.raca,
+            nome: animal.Nome,
+            idade: animal.Idate,
+            porte: animal.Porte,
+            descricao: animal.Descricao,
+            raca: animal.Raca,
+            foto: animal.Foto
         })
     }
-
       render() {
         return (
           <View style={styles.container}>
+            { this.state.nome != '' && <Text style={{marginTop: 20, fontSize: 30}}>{this.state.nome}</Text> }
+
     		<View style={styles.imgLogo}>
-                <Image source={logo} style={{flex: 1}}/>
+                <Image source={{uri: this.state.foto}} style={{width: 200, height: 200}}/>
             </View>
     		<View style={styles.formulario}>
-
-    		</View>
-    		<View style={styles.footer}>
-    			<Text style={{fontSize: 20}}>Copyright Teste 2017</Text>
+                <Text>Idade: {this.state.Idade}</Text>
+                <Text>Porte: {this.state.porte}</Text>
+                <Text>Raça: {this.state.raca}</Text>
+                <Text>{this.state.descricao}</Text>
     		</View>
           </View>
         );
@@ -59,6 +61,7 @@
     const styles = StyleSheet.create({
       container: {
         flex: 1,
+        paddingTop: 55,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: thirdColor,
@@ -68,7 +71,7 @@
     	  alignSelf: 'stretch',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 50
+        marginTop: 20
       },
       formulario:{
     	flex: 5,

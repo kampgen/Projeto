@@ -32,7 +32,7 @@ export default class Lista extends Component {
 
     _handleList(l, id) {
         return(
-            <TouchableHighlight key={id} onPress={() => Actions.animal(anima = l)}>
+            <TouchableHighlight key={id} onPress={() => Actions.animal(animal = l)}>
                 <View style={styles.eachItem}>
                     <View style={{marginTop: 10}}>
                         <Text style={{ fontSize: 22 }}>Idade: {l.Idade}    Porte: {l.Porte}</Text>

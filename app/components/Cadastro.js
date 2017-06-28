@@ -24,7 +24,20 @@
     }
     }
 
+    emailValidate() {
+        if(this.state.email.length == 0) return null
+        let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        let isEmail = emailRegex.test(this.state.email)
+        if(!isEmail) return 'error'
+        return 'success'
+    }
+
     cadastrar(email, senha) {
+
+        let validate = this.emailValidate()
+
+        if (validate != 'success') { return alert("Email", "Email inválido.") }
+
         cadastrarUsuario(email, senha)
         .then(l => {
             if (l == undefined) return

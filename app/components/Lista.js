@@ -35,8 +35,8 @@ export default class Lista extends Component {
             <TouchableHighlight key={id} onPress={() => Actions.animal(animal = l)}>
                 <View style={styles.eachItem}>
                     <View style={{marginTop: 10}}>
-                        <Text style={{ fontSize: 22 }}>Idade: {l.Idade}    Porte: {l.Porte}</Text>
-                        <Text style={{ fontSize: 22 }}>Raça: {l.Raca}</Text>
+                        <Text style={{ fontSize: 18 }}>Idade: {l.Idade}    Porte: {l.Porte}</Text>
+                        <Text style={{ fontSize: 18 }}>Raça: {l.Raca}</Text>
                     </View>
                         <Image style={[styles.imageBox, { width: 100, height: 80 }]} source={{uri: l.Foto}}/>
                 </View>
